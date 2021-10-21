@@ -1,31 +1,31 @@
-const pronoun = ["the", "our"];
-const adjective = ["great", "big"];
-const noun = ["uruk", "wacom"];
-const extension = ['com', 'es', 'de', 'it', 'uk'];
+const PRONOUN = ["the", "our"];
+const ADJECTIVE = ["great", "big"];
+const NOUN = ["uruk", "wacom"];
+const EXTENSION = ['com', 'es', 'de', 'it', 'uk'];
 
 window.onload = () => {
 
- domain(pronoun, adjective, noun, extension);
+ domain(PRONOUN, ADJECTIVE, NOUN, EXTENSION);
 }
 
 
 function domain(a, b, c, d) {
     let domains = [];
-    for (const element1 in a) {
+    for (const pronoun in a) {
           
-        for (const element2 in b) {
+        for (const adjective in b) {
           
-            for (const element3 in c) {
+            for (const noun in c) {
                 
-                for (const element4 in d) {
-                    if (c[element3].slice(-2) == d[element4]) {
-                        domains.push(a[element1].concat(b[element2], c[element3].slice(0, -2), '.', d[element4]));
+                for (const extension in d) {
+                    if (c[noun].slice(-2) == d[extension]) {
+                        domains.push(a[pronoun].concat(b[adjective], c[noun].slice(0, -2), '.', d[extension]));
                     }
-                    else if (c[element3].slice(-3) == d[element4]) {
-                        domains.push(a[element1].concat(b[element2], c[element3].slice(0, -3), '.', d[element4]));
+                    else if (c[noun].slice(-3) == d[extension]) {
+                        domains.push(a[pronoun].concat(b[adjective], c[noun].slice(0, -3), '.', d[extension]));
                     }
                     else{
-                        domains.push(a[element1].concat(b[element2], c[element3], '.', d[element4]));
+                        domains.push(a[pronoun].concat(b[adjective], c[noun], '.', d[extension]));
                     }
                 }
             } 
@@ -33,4 +33,5 @@ function domain(a, b, c, d) {
     }
     return domains;
 }
-console.log(domain(pronoun, adjective, noun, extension));
+console.log(domain(PRONOUN, ADJECTIVE, NOUN, EXTENSION));
+
